@@ -21,7 +21,7 @@ const SHOULD_NOT_BE_IN_VCS = 'EAAGQI7zUsMkBACWpMiDAsoS5KoAQ8v4o6nO8A922eYhoN1Knr
 
 const handleGet = (req, res) => { 
   const isSubscriptionMode = req.query['hub.mode'] === 'subscribe';
-  const hasValidToken = req.query['hub.verify_token'] === 'dooley_party_bot');
+  const hasValidToken = req.query['hub.verify_token'] === 'dooley_party_bot';
   if (isSubscriptionMode && hasValidToken) {
     res.status(200).send(req.query['hub.challenge']);
   } else {
@@ -29,7 +29,7 @@ const handleGet = (req, res) => {
   }
 };
 
-const handlePost = (req, res) = {
+const handlePost = (req, res) => {
   const data = req.body;
 
   // Make sure this is a page subscription
