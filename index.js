@@ -21,13 +21,13 @@ exports.primitiveRouter = (req, res) => {
 
 const SHOULD_NOT_BE_IN_VCS = 'EAAGQI7zUsMkBACWpMiDAsoS5KoAQ8v4o6nO8A922eYhoN1KnrcZCYrvOOhNcDXCU3EO3P2LHBcwqNyEPoJFS7hJyAESPZC6E1fUKLEQQrxS7y3T9cpZAgKhpAPDXCzfsLmhpGPiIOvd8OC8lGsQZCdQaTUPJSx3JguXHIVJJmQZDZD';
 
-const handleGet = (req, res) => { 
+const handleGet = (req, res) => {
   const isSubscriptionMode = req.query['hub.mode'] === 'subscribe';
   const hasValidToken = req.query['hub.verify_token'] === 'dooley_party_bot';
   if (isSubscriptionMode && hasValidToken) {
     res.status(200).send(req.query['hub.challenge']);
   } else {
-    res.status(403).send({error: '🚫'});    
+    res.status(403).send({error: '🚫'});
   }
 };
 
@@ -67,7 +67,7 @@ function receivedMessage(event) {
   const timeOfMessage = event.timestamp;
   const message = event.message;
 
-  console.log("Received message for user %d and page %d at %d with message:", 
+  console.log("Received message for user %d and page %d at %d with message:",
     senderID, recipientID, timeOfMessage);
   console.log(JSON.stringify(message));
 
@@ -99,12 +99,9 @@ function sendGenericMessage(recipientId, messageText) {
 
 function sendTextMessage(recipientId, messageText) {
   const responses = [
-    '🤘',
-    'truly blessed 🙏',
-    'My man!',
-    '🍆',
-    'Fuck you!',
-    '🖕'
+    'truly blessed 🙌',
+    'stay humble 🙏',
+    'rudebox'
   ];
   const getRandomResponse = () => {
     const index = Math.floor(Math.random() * responses.length);
@@ -134,12 +131,12 @@ function callSendAPI(messageData) {
       const recipientId = body.recipient_id;
       const messageId = body.message_id;
 
-      console.log("Successfully sent generic message with id %s to recipient %s", 
+      console.log("Successfully sent generic message with id %s to recipient %s",
         messageId, recipientId);
     } else {
       console.error("Unable to send message.");
       console.error(response);
       console.error(error);
     }
-  });  
+  });
 }
