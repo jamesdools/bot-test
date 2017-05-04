@@ -109,13 +109,13 @@ function sendTextMessage(recipientId, messageText) {
   const getRandomResponse = () => {
     const index = Math.floor(Math.random() * responses.length);
     return responses[index];
-  }
+  };
   const messageData = {
     recipient: {
       id: recipientId
     },
     message: {
-      text: getRandomResponse();
+      text: getRandomResponse()
     }
   };
 
