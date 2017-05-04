@@ -1,3 +1,5 @@
+const request = require('request');
+
 /**
  * Responds to any HTTP request that can provide a "message" field in the body.
  *
