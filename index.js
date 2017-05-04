@@ -98,12 +98,24 @@ function sendGenericMessage(recipientId, messageText) {
 }
 
 function sendTextMessage(recipientId, messageText) {
-  var messageData = {
+  const responses = [
+    '🤘',
+    'truly blessed 🙏',
+    'My man!',
+    '🍆',
+    'Fuck you!',
+    '🖕'
+  ];
+  const getRandomResponse = () => {
+    const index = Math.floor(Math.random() * responses.length);
+    return responses[index];
+  }
+  const messageData = {
     recipient: {
       id: recipientId
     },
     message: {
-      text: messageText
+      text: getRandomResponse();
     }
   };
 
