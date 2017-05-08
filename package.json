@@ -1,7 +1,10 @@
 {
-  "name": "sample-http",
+  "name": "denim-chicken",
   "version": "0.0.1",
   "dependencies": {
+    "async": "^2.4.0",
+    "lodash": "^4.17.4",
+    "moment": "^2.18.1",
     "request": "^2.81.0"
   }
 }
